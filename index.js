@@ -25,12 +25,16 @@ dogButton.addEventListener('click', function () {
             select.appendChild(option);
         });
 
-        select.addEventListener('change',function(e) {
+        select.addEventListener('change', function (e) {
             const breed = e.target.value;
-            $get('https://dog.ceo/api/breed/${breed}/images/random').then(function(data){
+            $get('https://dog.ceo/api/breed/${breed}/images/random').then(function (data) {
                 const img = document.createElement('img');
                 console.log('data =', data);
                 img.setAttribute('src', data.message);
+
+                const imagesDiv = document.getElementById('images');
+                imagesDiv.innerHTML = '';
+                imagesDiv.appendChild(img);
             });
         });
     });
