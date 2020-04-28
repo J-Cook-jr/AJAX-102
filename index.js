@@ -15,4 +15,6 @@ dogButton.addEventListener('click', function () {
         dogButton.textContent = 'Generate Doggo';
     });
 
+    $.get('https://dog.ceo/api/breeds/list')
+
 });
