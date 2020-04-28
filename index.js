@@ -15,6 +15,15 @@ dogButton.addEventListener('click', function () {
         dogButton.textContent = 'Generate Doggo';
     });
 
-    $.get('https://dog.ceo/api/breeds/list')
+    $.get('https://dog.ceo/api/breeds/list').then(function (data) {
+        const breeds = data.message;
+        const select = document.getElementById('dog-select');
+        breeds.forEach(function (breed) {
+            const option = document.createElement('option');
+            option.setAttribute('value', breed);
+            option.textContent = breed;
+            select.appendChild(option);
+        });
+    });
 
 });
